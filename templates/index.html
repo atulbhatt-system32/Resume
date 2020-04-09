@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Resume Reader</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel ="stylesheet" href = "/static/theme3.css">
+        <link rel ="stylesheet" href = "/static/styles.css">
+        <script src = "/static/jq.js"></script>
+        <style>
+           
+        </style>
+    </head>
+    <body>
+        <ul class = "my-nav">
+            <li class = "my-nav-li"><a href="default.asp" class = "my-nav-a">Home</a></li>
+            <li class = "my-nav-li"><a href="news.asp" class = "my-nav-a">News</a></li>
+            <li class = "my-nav-li"><a href="contact.asp" class = "my-nav-a">Contact</a></li>
+            <li class = "my-nav-li"><a href="about.asp" class = "my-nav-a">About</a></li>
+        </ul>
+        <div class = "heading">
+            <h3>Upload Your Resume</h3>
+        </div>
+
+        <form action="{{ url_for('upload')}}" method="post" enctype="multipart/form-data">
+            <div class = "uploader-section">
+                <div class="wrapper">
+                    <div class="file-upload">
+                        <input type="file" />
+                        <i class="fa fa-arrow-up"></i>
+                        <br>
+                        <h6>Select or Browse Files</h6>
+                    </div>
+                </div>  
+            </div>
+            <div class = "upload-div">
+                <input type = "submit" class = "upload" value="upload"/>
+            </div>
+        </form>
+    </body>
+</html>

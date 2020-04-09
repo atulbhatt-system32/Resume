@@ -1,0 +1,96 @@
+	html{
+		font-size: 100%;
+		height: 100%;
+	}
+
+	/*Nav-Bar CSS */
+	.my-nav{	
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+		background-color: #333;
+	}
+
+	.my-nav-li{
+		float: left;
+	}
+
+	.my-nav-a{
+		display: block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;	
+	}
+		
+	body{
+		
+		background-color:rgb(3, 88, 158);
+		height:100%;
+		color: #FFFFFF;
+		}
+
+
+	.heading{
+		text-align: center;
+		margin-top: 50px;
+	}
+	.wrapper {
+	width: 100%;
+	margin-bottom: 50px;
+	display: flex;
+	margin-top: 50px;
+	justify-content: center;
+	}
+	.wrapper .file-upload {
+	height: 200px;
+	width: 200px;
+	border-radius: 100px;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: 4px solid #FFFFFF;
+	overflow: hidden;
+	background-image: linear-gradient(to bottom, rgb(43, 50, 80) 50%, #FFFFFF 50%);
+	background-size: 100% 200%;
+	transition: all 1s;
+	color: #FFFFFF;
+	font-size: 100px;
+	}
+	.wrapper .file-upload input[type='file'] {
+	height: 200px;
+	width: 200px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	cursor: pointer;
+	}
+	.wrapper .file-upload:hover {
+	background-position: 0 -100%;
+	color: rgb(5, 44, 78);
+	}
+
+	.upload {
+		margin: 10px;
+		background-color: rgb(160, 0, 35); 
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+	  }
+
+	  .upload-div{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	  }
+
+	  .upload:hover{
+		  background-color:  rgb(184, 60, 87);
+	  }
