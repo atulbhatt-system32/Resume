@@ -17,4 +17,4 @@ def upload():
     if request.method == 'POST':
         print("hello")
         
-    return render_template("Home.html")
+    return render_template("resume.html")
