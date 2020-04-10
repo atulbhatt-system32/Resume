@@ -164,3 +164,18 @@
       background-position: 0 0;
     }
   }
+
+  .container{
+    display: flex;
+    height: auto;
+  }
+  
+  .user-details{
+    flex:1;
+    margin: 10px;
+  }
+
+  .file-details{
+    flex:1 ;
+    margin: 10px;
+  }
