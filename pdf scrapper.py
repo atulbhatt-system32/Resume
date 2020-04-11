@@ -1,28 +1,27 @@
 import PyPDF2
+import types
 import os
+import fitz
 
-resume = open("Resume_1.pdf","rb")
-pdfReader = PyPDF2.PdfFileReader(resume)
+dictForm = {}
+doc = fitz.open("Resume_1.pdf")  
+pages = doc.pageCount
 
-totalPages = pdfReader.numPages
-resumeContent = ""
-#for i in range(totalPages):
-    #pageObj = pdfReader.getPage(i)
-    #resumeContent += pageObj.extractText()
-#print(resumeContent)
-PDF = PyPDF2.PdfFileReader(resume)
-pages = PDF.getNumPages()
-key = '/Annots'
-uri = '/URI'
-ank = '/A'
-
+text = ""
+link = []
 for page in range(pages):
-    print("Current Page: {}".format(page))
-    pageSliced = PDF.getPage(page)
-    pageObject = pageSliced.getObject()
-    if key in pageObject.keys():
-        ann = pageObject[key]
-        for a in ann:
-            u = a.getObject()
-            if uri in u[ank].keys():
-                print(u[ank][uri])
+    for links in doc[page].getLinks():
+        link.append(links['uri'])
+    text += doc[page].getText("text")
+
+contentList = text.split("\n")
+#print(contentList)
+if(contentList[0].rstrip().lstrip() == "RESUME"):
+    dictForm['name'] = contentList[2].lstrip().rstrip()
+
+for i in link:
+    if "linkedin" in i:
+        dictForm['linkedin'] = i.lstrip().rstrip()
+    if "@" in i:
+        dictForm['email'] = i[str(i).find(":"):].lstrip().rstrip()
+print(dictForm)
