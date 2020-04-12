@@ -85,24 +85,6 @@ for rel in rels:
         link.append(rels[rel]._target)
 #End finding links
 
-
-#Finding name, email, and linkedin profile
-contentList = text.split("\n")
-
-if(contentList[0].rstrip().lstrip() == "RESUME"):
-    dictForm['name'] = contentList[2].lstrip().rstrip()
-
-for i in link:
-    if "linkedin" in i:
-        dictForm['linkedin'] = i.lstrip().rstrip()
-    if "@" in i:
-        dictForm['email'] = i[str(i).find(":"):].lstrip().rstrip()
-#End find name,etc
-
-#Find total number of Lines in the file
-dictForm['lineCount'] = text.count("\n")
-#End search for total Lines
-
 #Removing new-lines '\n' form the file to count only the words
 flag = True
 
@@ -116,6 +98,29 @@ while(flag):
         text1 = text2
 
 #End cleaning the "text" with '\n'
+
+#Finding name, email, and linkedin profile
+contentList = text.split("\n")
+
+if(contentList[0].rstrip().lstrip() == "RESUME"):
+    dictForm['name'] = contentList[2].lstrip().rstrip()
+else:
+    if text2.split()[0] == text2.split()[1]:
+        dictForm['name'] = text2.split()[0].lstrip().rstrip()
+    else:
+        dictForm['name'] = text2.split()[0].lstrip().rstrip() + " " + text2.split()[1].lstrip().rstrip()
+
+
+for i in link:
+    if "linkedin" in i:
+        dictForm['linkedin'] = i.lstrip().rstrip()
+    if "@" in i:
+        dictForm['email'] = i[str(i).find(":"):].lstrip().rstrip().strip(":")
+#End find name,etc
+
+#Find total number of Lines in the file
+dictForm['lineCount'] = text.count("\n")
+#End search for total Lines
 
 #Finding the number of words"
 dictForm['textCount'] = len(text2.strip())

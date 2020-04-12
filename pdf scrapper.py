@@ -6,7 +6,7 @@ import re
 
 
 dictForm = {}
-doc = fitz.open("Resume_2.pdf")  
+doc = fitz.open("Resume_3.pdf")  
 pages = doc.pageCount
 text = ""
 link = []
@@ -59,12 +59,17 @@ contentList = text.split("\n")
 
 if(contentList[0].rstrip().lstrip() == "RESUME"):
     dictForm['name'] = contentList[2].lstrip().rstrip()
+else:
+    if text2.split()[0] == text2.split()[1]:
+        dictForm['name'] = text2.split()[0].lstrip().rstrip()
+    else:
+        dictForm['name'] = text2.split()[0].lstrip().rstrip() + " " + text2.split()[1].lstrip().rstrip()
 
 for i in link:
     if "linkedin" in i:
         dictForm['linkedin'] = i.lstrip().rstrip()
     if "@" in i:
-        dictForm['email'] = i[str(i).find(":"):].lstrip().rstrip()
+        dictForm['email'] = i[str(i).find(":"):].lstrip().rstrip().strip(":")
 #End find name,etc
 
 #finding contact number
