@@ -28,47 +28,55 @@
                 </header>
             </div>
             
-            <form class="form">    
+            <form class="form" action="/datasave" method="POST" enctype="multipart/form-data">    
                 <div class = "container">
                         <div class = "user-details">
                             <div class="form__group">
-                                <input type="text" placeholder="Name" class="form__input" />
+                                <input type="text" placeholder="Name" name="name" value="{{ name }}" class="form__input" />
                             </div>
                             
                             <div class="form__group">
-                                <input type="email" placeholder="Email" class="form__input" />
+                                <input type="email" placeholder="Email" name="email" value="{{ email }}" class="form__input" />
                             </div>
 
                             <div class="form__group">
-                                <input type="text" placeholder="Phone" class="form__input" />
+                                <input type="text" placeholder="Phone" name="phone" class="form__input" />
                             </div>
                             
                             <div class="form__group">
-                                <input type="email" placeholder="Linkedin" class="form__input" />
+                                <input type="text" placeholder="Linkedin" name="linkedin" value="{{ linkedin }}" class="form__input" />
                             </div>
-
+                            <div class="form__group">
+                                <input type="number" placeholder="Text Line" name="linecount" value="{{ linecount }}" class="form__input" />
+                            </div>
+                            
                         </div>
                         
                         <div class = "file-details">
+                            
                             <div class="form__group">
-                                <input type="number" placeholder="Text Line" class="form__input" />
+                                <input type="number" placeholder="Text Characters" name="textcount" value="{{ textcount }}" class="form__input" />
+                            </div>
+
+                            <div class="form__group">
+                                <input type="number" placeholder="Tables" name="tablecount" value="{{ tablecount }}" class="form__input" />
+                            </div>
+
+                            <div class="form__group">
+                                <input type="number" placeholder="Images" name="imgcount" value="{{ imgcount }}" class="form__input" />
+                            </div>
+
+                            <div class="form__group">
+                                <input type="text" placeholder="Font Styles" name="fontstyle" class="form__input" />
                             </div>
                             
                             <div class="form__group">
-                                <input type="number" placeholder="Text Characters" class="form__input" />
-                            </div>
-
-                            <div class="form__group">
-                                <input type="number" placeholder="Tables" class="form__input" />
-                            </div>
-
-                            <div class="form__group">
-                                <input type="number" placeholder="Images" class="form__input" />
+                                <input type="text" placeholder="Font Size" name="fontsize" class="form__input" />
                             </div>
                         </div>
                 </div>
                 <div class ="register">
-                    <button class="btn" type="button">Register</button>
+                    <button class="btn" type="submit">Register</button>
                 </div>
             </form> 
     </body>

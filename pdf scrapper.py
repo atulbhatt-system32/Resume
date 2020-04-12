@@ -6,7 +6,7 @@ import re
 
 
 dictForm = {}
-doc = fitz.open("Resume_3.pdf")  
+doc = fitz.open("Resume_2.pdf")  
 pages = doc.pageCount
 text = ""
 link = []
@@ -27,10 +27,10 @@ for page in range(pages):
     text += doc[page].getText("text")
     #End find links
 
-    #Find number of Images
-    for img in doc.getPageImageList(page):
-        dictForm['imgCount'] += 1
-    #End find images
+#Find number of Images
+for img in doc.getPageImageList(page):
+    dictForm['imgCount'] += 1
+#End find images
 
 #Find total number of Lines in the file
 dictForm['lineCount'] = text.count("\n")
@@ -51,7 +51,7 @@ while(flag):
 #End cleaning the "text" with '\n'
 
 #Finding the number of words"
-dictForm['textCount'] = len(text2.split(" "))
+dictForm['textCount'] = len(text2.strip(" "))
 #End
 
 #Finding name, email, and linkedin profile
@@ -68,7 +68,5 @@ for i in link:
 #End find name,etc
 
 #finding contact number
-res = [x for x in text2.split(" ") if re.match("[a-z][0-9][a-z][0-9]+", test_string)]
 
-
-print(res)
+print(dictForm)
