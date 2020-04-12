@@ -30,3 +30,7 @@ dictForm['imgCount'] = len(images)
 #End images counting
 
 pip install pdftables.six
+
+        for size in sizes:
+            dictForm['fontsizes'] = dictForm['fontsizes'] + "(" + str(size)
+        dictForm['fontsizes'] += ") "

@@ -179,3 +179,10 @@
     flex:1 ;
     margin: 10px;
   }
+
+  
+  .upload-div{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	  }

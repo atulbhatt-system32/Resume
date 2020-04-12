@@ -1,6 +1,6 @@
-const button = document.querySelector('.btn')
-const form   = document.querySelector('.form')
-
-button.addEventListener('click', function() {
-   form.classList.add('form--no') 
+$(document).ready(function() {
+   $('input[type="file"]').change(function(e) {
+       var fileName = e.target.files[0].name;
+       $("#fileCondition").html(fileName);
+   });
 });

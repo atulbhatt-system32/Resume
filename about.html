@@ -8,7 +8,6 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <link rel ="stylesheet" href = "/static/theme3.css">
         <link rel ="stylesheet" href = "/static/styles.css">
-        <script src = "/static/form.js"></script>
         <style>
            
         </style>
@@ -19,22 +18,8 @@
             <li class = "my-nav-li"><a href="{{ url_for('home') }}" class = "my-nav-a">About</a></li>
         </ul>
         <div class = "heading">
-            <h3>Upload Your Resume</h3>
+            <h3>About Our Application</h3>
         </div>
 
-        <form action="/upload" method="post" enctype="multipart/form-data">
-            <div class = "uploader-section">
-                <div class="wrapper">
-                    <div class="file-upload">
-                        <input type="file" name="file" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document" />
-                        <br>
-                        <h6 id = "fileCondition">Select or Browse Files</h6>
-                    </div>
-                </div>  
-            </div>
-            <div class = "upload-div">
-                <input type = "submit" class = "upload" value="upload"/>
-            </div>
-        </form>
     </body>
 </html>
