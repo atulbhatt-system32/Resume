@@ -133,7 +133,7 @@ def form_handle():
         imgcount = request.form["imgcount"]
         fontstyle = request.form["fontstyle"]
         fontsize = request.form["fontsize"]
-        conn = sqlite3.connect('C:/Users/Aniruddha/Documents/Resume-master/database.db')
+        conn = sqlite3.connect(os.path.join(os.getcwd(),"database.db"))
         c = conn.cursor()
         c.execute("INSERT INTO userdetails VALUES (?,?,?,?,?,?,?,?,?,?)",(name,email,phone,linkedin,linecount,textcount,tablecount,imgcount,fontstyle,fontsize))
         # Save (commit) the changes

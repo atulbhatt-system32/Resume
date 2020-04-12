@@ -20,3 +20,13 @@ for page in range(pages):
             u = a.getObject()
             if uri in u[ank].keys():
                 urls.append(u[ank][uri])
+
+
+#Find images count
+z = zipfile.ZipFile("Resume_1.docx")
+all_files = z.namelist()
+images = list(filter(lambda x: x.startswith('word/media/'), all_files))
+dictForm['imgCount'] = len(images)
+#End images counting
+
+pip install pdftables.six

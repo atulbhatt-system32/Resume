@@ -1,12 +1,15 @@
 import PyPDF2
-import types
 import os
 import fitz
 import re
 
 
+
 dictForm = {}
-doc = fitz.open("Resume_3.pdf")  
+doc = fitz.open("Resume_2.pdf") 
+
+
+
 pages = doc.pageCount
 text = ""
 link = []
@@ -26,6 +29,8 @@ for page in range(pages):
         link.append(links['uri'])
     text += doc[page].getText("text")
     #End find links
+
+#Still not able to find a feasible way to find number of tables in pdf
 
 #Find number of Images
 for img in doc.getPageImageList(page):
@@ -74,4 +79,18 @@ for i in link:
 
 #finding contact number
 
+#find font-details
+
+#get fonts info
+fontDetails = {}
+for page in doc:
+    for fonts in page.getFontList():
+        fname = fonts[3]
+        fsize = fonts[0]
+        if fname is not None and fsize is not None:
+            if (fname in fontDetails) and (fsize not in fontDetails[fname]):
+                fontDetails[fname] = fontDetails[fname].append(fsize)
+            else:
+                fontDetails[fname] = [fsize]
 print(dictForm)
+print(fontDetails)

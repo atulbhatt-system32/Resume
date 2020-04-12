@@ -1,0 +1,2 @@
+pdfminer.six>=20160614
+numpy>=1.6.2

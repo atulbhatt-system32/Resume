@@ -47,7 +47,7 @@ dictForm['imgCount'] = 0
 fontDetails = {}
 
 #Read docx File
-doc = docx.Document('Resume_3.docx')
+doc = docx.Document('Resume_1.docx')
 paras = []
 
 for block in iter_block_items(doc):
