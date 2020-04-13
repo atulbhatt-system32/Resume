@@ -24,18 +24,19 @@ def upload():
     f = None
     if request.method == 'POST':
         f = request.files['file']
-        path = os.path.join(os.getcwd())
-        f.save(path+f.filename)
+        path = os.path.join(os.getcwd(),f.filename)
+        f.save(path)
 
         if f is None:
             return render_template("home.html")
-
         elif(str(f.filename).endswith(".pdf")):
             details = ps.pdf_scrapper(f.filename)
-        else:
+        elif(str(f.filename).endswith(".docx")):
             details = ds.docxScrapper(f.filename)
+        else:
+            return render_template("home.html")
 
-        os.remove(path+f.filename)
+        os.remove(path)
         if details is not None:
             name = details["name"]
             email = details["email"]
